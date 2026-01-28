@@ -54,7 +54,7 @@ const ServiceCard = ({
 
 const Services = () => {
   return (
-    <section id="services" className="py-32 relative bg-background/50">
+    <section id="services" className="pt-32 relative bg-background/50">
       <div className="container mx-auto px-6">
         <div className="mb-24 text-center">
           <motion.h2

@@ -57,7 +57,9 @@ const Footer = () => {
                   key={link.name}
                   className="hover:text-primary transition-colors cursor-pointer"
                 >
-                  {link.name}
+                  <Link href={link.href} target="_blank">
+                    {link.name}
+                  </Link>
                 </li>
               ))}
             </ul>

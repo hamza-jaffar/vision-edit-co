@@ -23,11 +23,20 @@ export const NAV_LINKS = [
 ];
 
 export const SOCIAL_LINKS = [
-  { name: "Instagram", href: "#" },
-  { name: "Twitter", href: "#" },
-  { name: "LinkedIn", href: "#" },
-  { name: "YouTube", href: "#" },
-  { name: "Behance", href: "#" },
+  {
+    name: "WhatsApp",
+    href: "https://whatsapp.com/channel/0029Vb7VfQ03LdQayS1Fc82n",
+  },
+  {
+    name: "YouTube",
+    href: "https://youtube.com/@visioneditcompany?si=uzvsS-zHTI0eqd7-",
+  },
+  { name: "TikTok", href: "https://www.tiktok.com/@visioneditcompany" },
+  // { name: "Instagram", href: "#" },
+  {
+    name: "Facebook",
+    href: "https://www.facebook.com/profile.php?id=100094402544303",
+  },
 ];
 
 export const HERO_CONTENT = {
@@ -110,28 +119,32 @@ export const FEATURED_WORK_CONTENT = {
   projects: [
     {
       id: 1,
-      category: "Commercial",
+      category: "YouTube",
       title: "Nike Air Max Promo",
       color: "bg-red-500",
+      videoUrl: "https://youtu.be/4xmVO6XFLZw",
     },
     {
       id: 2,
       category: "YouTube",
       title: "Tech Review - M3 MacBook",
       color: "bg-blue-500",
+      videoUrl: "https://youtu.be/f8pIDMJrR2k",
     },
-    {
-      id: 3,
-      category: "Social Media",
-      title: "Fashion Week Reels",
-      color: "bg-purple-500",
-    },
-    {
-      id: 4,
-      category: "Music Video",
-      title: "Neon Nights",
-      color: "bg-emerald-500",
-    },
+    // {
+    //   id: 3,
+    //   category: "Social Media",
+    //   title: "Fashion Week Reels",
+    //   color: "bg-purple-500",
+    //   videoUrl: "https://www.youtube.com/watch?v=9_D80e-A7M0",
+    // },
+    // {
+    //   id: 4,
+    //   category: "Music Video",
+    //   title: "Neon Nights",
+    //   color: "bg-emerald-500",
+    //   videoUrl: "https://www.youtube.com/watch?v=33K869xOXYI",
+    // },
   ],
 };
 

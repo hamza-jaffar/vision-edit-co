@@ -1,10 +1,30 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Play } from "lucide-react";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Play, X } from "lucide-react";
 import { FEATURED_WORK_CONTENT } from "@/lib/constants";
 
 const FeaturedWork = () => {
+  const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
+
+  // Function to extract YouTube ID
+  const getYouTubeId = (url: string) => {
+    const regExp =
+      /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+    const match = url.match(regExp);
+    return match && match[2].length === 11 ? match[2] : null;
+  };
+
+  // Close modal when pressing escape
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setSelectedVideo(null);
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
   return (
     <section id="work" className="py-32">
       <div className="container mx-auto px-6">
@@ -28,6 +48,7 @@ const FeaturedWork = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.2 }}
+              onClick={() => setSelectedVideo(project.videoUrl || null)}
               className="group relative h-[400px] md:h-[500px] rounded-3xl overflow-hidden cursor-pointer bg-neutral-900 border border-border/30"
             >
               {/* Fallback/Placeholder Visual */}
@@ -57,6 +78,41 @@ const FeaturedWork = () => {
           ))}
         </div>
       </div>
+
+      <AnimatePresence>
+        {selectedVideo && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8 bg-black/90 backdrop-blur-xl"
+            onClick={() => setSelectedVideo(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              className="relative w-full max-w-6xl aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                onClick={() => setSelectedVideo(null)}
+                className="absolute top-4 right-4 z-10 p-2 rounded-full bg-black/20 hover:bg-black/40 text-white backdrop-blur-md transition-colors"
+                aria-label="Close video"
+              >
+                <X className="w-6 h-6" />
+              </button>
+
+              <iframe
+                src={`https://www.youtube.com/embed/${getYouTubeId(selectedVideo)}?autoplay=1`}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="w-full h-full border-0"
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };
