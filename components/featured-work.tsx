@@ -2,33 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Play } from "lucide-react";
-
-const projects = [
-  {
-    id: 1,
-    category: "Commercial",
-    title: "Nike Air Max Promo",
-    color: "bg-red-500",
-  },
-  {
-    id: 2,
-    category: "YouTube",
-    title: "Tech Review - M3 MacBook",
-    color: "bg-blue-500",
-  },
-  {
-    id: 3,
-    category: "Social Media",
-    title: "Fashion Week Reels",
-    color: "bg-purple-500",
-  },
-  {
-    id: 4,
-    category: "Music Video",
-    title: "Neon Nights",
-    color: "bg-emerald-500",
-  },
-];
+import { FEATURED_WORK_CONTENT } from "@/lib/constants";
 
 const FeaturedWork = () => {
   return (
@@ -40,14 +14,14 @@ const FeaturedWork = () => {
           viewport={{ once: true }}
           className="text-4xl md:text-6xl font-bold mb-16"
         >
-          Selected{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
-            Work.
+          {FEATURED_WORK_CONTENT.titleMain}{" "}
+          <span className="text-transparent bg-clip-text bg-linear-to-r from-primary to-accent">
+            {FEATURED_WORK_CONTENT.titleAccent}
           </span>
         </motion.h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {projects.map((project, index) => (
+          {FEATURED_WORK_CONTENT.projects.map((project, index) => (
             <motion.div
               key={project.id}
               initial={{ opacity: 0, y: 50 }}
@@ -60,7 +34,7 @@ const FeaturedWork = () => {
               <div
                 className={`absolute inset-0 opacity-20 group-hover:opacity-10 transition-opacity duration-700 ${project.color}`}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-90" />
+              <div className="absolute inset-0 bg-linear-to-t from-background via-transparent to-transparent opacity-90" />
 
               <div className="absolute bottom-0 left-0 p-8 w-full">
                 <p className="text-primary text-sm font-medium mb-2 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
@@ -68,8 +42,8 @@ const FeaturedWork = () => {
                 </p>
                 <h3 className="text-3xl font-bold mb-4">{project.title}</h3>
                 <div className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-muted-foreground group-hover:text-foreground transition-colors">
-                  View Case Study{" "}
-                  <div className="w-8 h-[1px] bg-foreground/50" />
+                  {FEATURED_WORK_CONTENT.ctaText}{" "}
+                  <div className="w-8 h-px bg-foreground/50" />
                 </div>
               </div>
 

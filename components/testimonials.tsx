@@ -2,30 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Star, Quote } from "lucide-react";
-
-const testimonials = [
-  {
-    name: "Sarah Jenkins",
-    role: "Marketing Director at FlowState",
-    content:
-      "The video edits Vision Edit Co delivered were beyond our expectations. They captured our brand voice perfectly and the motion graphics were world-class.",
-    rating: 5,
-  },
-  {
-    name: "Marcus Thorne",
-    role: "Founder, TechByte YouTube",
-    content:
-      "My retention rates jumped by 40% after they took over my editing. Fast, creative, and they just 'get' the YouTube algorithm style.",
-    rating: 5,
-  },
-  {
-    name: "Elena Rodriguez",
-    role: "Social Media Lead, Aura Beauty",
-    content:
-      "Incredible eye for detail. Their graphic designs for our Instagram campaigns felt high-end and luxurious. Highly recommend!",
-    rating: 5,
-  },
-];
+import { TESTIMONIALS_CONTENT } from "@/lib/constants";
 
 const Testimonials = () => {
   return (
@@ -33,11 +10,11 @@ const Testimonials = () => {
       <div className="container mx-auto px-6">
         <div className="flex items-center gap-2 mb-4">
           <Quote className="text-primary w-8 h-8 opacity-50" />
-          <h2 className="text-3xl font-bold">Client Feedback</h2>
+          <h2 className="text-3xl font-bold">{TESTIMONIALS_CONTENT.title}</h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {testimonials.map((t, i) => (
+          {TESTIMONIALS_CONTENT.testimonials.map((t, i) => (
             <motion.div
               key={t.name}
               initial={{ opacity: 0, y: 20 }}

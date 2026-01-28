@@ -10,37 +10,28 @@ import {
   Aperture,
   CheckCircle2,
 } from "lucide-react";
-import { useRef } from "react";
+import { SERVICES_CONTENT } from "@/lib/constants";
 
-const services = {
-  video: [
-    { title: "Motion Graphics", icon: <Film className="w-6 h-6" /> },
-    { title: "YouTube Video Editing", icon: <Youtube className="w-6 h-6" /> },
-    { title: "Ads & Promotion Videos", icon: <Video className="w-6 h-6" /> },
-    {
-      title: "Viral / Short-Form Edits",
-      icon: <Aperture className="w-6 h-6" />,
-    },
-  ],
-  design: [
-    { title: "Logo Design", icon: <Component className="w-6 h-6" /> },
-    { title: "Poster Design", icon: <PenTool className="w-6 h-6" /> },
-    { title: "YouTube Thumbnails", icon: <Youtube className="w-6 h-6" /> },
-    {
-      title: "Social Media Creatives",
-      icon: <CheckCircle2 className="w-6 h-6" />,
-    },
-    { title: "Brand Visual Assets", icon: <Component className="w-6 h-6" /> },
-  ],
+// Map titles to icons manually since we can't easily store JSX in JSON-like constants without hydration issues
+const iconMap: Record<string, any> = {
+  "Motion Graphics": <Film className="w-6 h-6" />,
+  "YouTube Video Editing": <Youtube className="w-6 h-6" />,
+  "Ads & Promotion Videos": <Video className="w-6 h-6" />,
+  "Viral / Short-Form Edits": <Aperture className="w-6 h-6" />,
+  "Logo Design": <Component className="w-6 h-6" />,
+  "Poster Design": <PenTool className="w-6 h-6" />,
+  "YouTube Thumbnails": <Youtube className="w-6 h-6" />,
+  "Social Media Creatives": <CheckCircle2 className="w-6 h-6" />,
+  "Brand Visual Assets": <Component className="w-6 h-6" />,
 };
 
 const ServiceCard = ({
   title,
-  icon,
+  description,
   index,
 }: {
   title: string;
-  icon: any;
+  description: string;
   index: number;
 }) => (
   <motion.div
@@ -52,14 +43,12 @@ const ServiceCard = ({
     className="p-6 rounded-2xl bg-card border border-border/50 hover:bg-card/80 transition-all group"
   >
     <div className="mb-4 text-primary p-3 bg-primary/10 rounded-xl inline-block group-hover:bg-primary group-hover:text-background transition-colors duration-300">
-      {icon}
+      {iconMap[title] || <CheckCircle2 className="w-6 h-6" />}
     </div>
     <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">
       {title}
     </h3>
-    <p className="text-muted-foreground text-sm">
-      Professional, high-impact creation designed for engagement.
-    </p>
+    <p className="text-muted-foreground text-sm">{description}</p>
   </motion.div>
 );
 
@@ -74,45 +63,33 @@ const Services = () => {
             viewport={{ once: true }}
             className="text-4xl md:text-5xl font-bold mb-6"
           >
-            Our Expertise
+            {SERVICES_CONTENT.title}
           </motion.h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            We separate the noise from the signal. Specialized services for
-            specific outcomes.
+            {SERVICES_CONTENT.description}
           </p>
         </div>
 
-        {/* Video Editing */}
-        <div className="mb-20">
-          <div className="flex items-center gap-4 mb-10">
-            <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent to-border" />
-            <h3 className="text-2xl font-bold text-accent tracking-widest uppercase">
-              Video Editing
-            </h3>
-            <div className="h-[1px] flex-1 bg-gradient-to-l from-transparent to-border" />
+        {SERVICES_CONTENT.sections.map((section, sectionIdx) => (
+          <div key={section.title} className={sectionIdx === 0 ? "mb-20" : ""}>
+            <div className="flex items-center gap-4 mb-10">
+              <div className="h-px flex-1 bg-linear-to-r from-transparent to-border" />
+              <h3
+                className={`text-2xl font-bold ${sectionIdx === 0 ? "text-accent" : "text-primary"} tracking-widest uppercase`}
+              >
+                {section.title}
+              </h3>
+              <div className="h-px flex-1 bg-linear-to-l from-transparent to-border" />
+            </div>
+            <div
+              className={`grid grid-cols-1 md:grid-cols-2 ${sectionIdx === 0 ? "lg:grid-cols-4" : "lg:grid-cols-5"} gap-6`}
+            >
+              {section.items.map((s, i) => (
+                <ServiceCard key={s.title} {...s} index={i + sectionIdx * 4} />
+              ))}
+            </div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {services.video.map((s, i) => (
-              <ServiceCard key={s.title} {...s} index={i} />
-            ))}
-          </div>
-        </div>
-
-        {/* Graphic Design */}
-        <div>
-          <div className="flex items-center gap-4 mb-10">
-            <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent to-border" />
-            <h3 className="text-2xl font-bold text-primary tracking-widest uppercase">
-              Graphic Design
-            </h3>
-            <div className="h-[1px] flex-1 bg-gradient-to-l from-transparent to-border" />
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
-            {services.design.map((s, i) => (
-              <ServiceCard key={s.title} {...s} index={i + 4} />
-            ))}
-          </div>
-        </div>
+        ))}
       </div>
     </section>
   );

@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { HERO_CONTENT } from "@/lib/constants";
 
 const Hero = () => {
   return (
@@ -21,7 +22,7 @@ const Hero = () => {
           className="inline-block mb-4 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 backdrop-blur-sm"
         >
           <span className="text-sm font-medium text-primary tracking-wide">
-            PREMIUM EDITING & DESIGN AGENCY
+            {HERO_CONTENT.badge}
           </span>
         </motion.div>
 
@@ -31,9 +32,9 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 leading-[1.1]"
         >
-          Visuals That <br className="hidden md:block" />
+          {HERO_CONTENT.titleMain} <br className="hidden md:block" />
           <span className="text-transparent bg-clip-text bg-linear-to-r from-primary via-blue-400 to-accent">
-            Defy Gravity.
+            {HERO_CONTENT.titleAccent}
           </span>
         </motion.h1>
 
@@ -43,9 +44,7 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
           className="text-lg md:text-xl text-muted-foreground max-w-2xl mb-10 leading-relaxed"
         >
-          We craft high-performance video edits and brand identities for
-          creators who demand specific attention. Fast, premium, and impossible
-          to ignore.
+          {HERO_CONTENT.description}
         </motion.p>
 
         <motion.div
@@ -55,17 +54,17 @@ const Hero = () => {
           className="flex flex-col md:flex-row items-center gap-4"
         >
           <Link
-            href="#work"
+            href={HERO_CONTENT.primaryCta.href}
             className="group px-8 py-4 rounded-full bg-foreground text-background font-bold text-lg hover:bg-neutral-200 transition-all flex items-center gap-2"
           >
-            View Our Work
+            {HERO_CONTENT.primaryCta.text}
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </Link>
           <Link
-            href="#contact"
+            href={HERO_CONTENT.secondaryCta.href}
             className="px-8 py-4 rounded-full border border-border bg-background/50 backdrop-blur-sm text-foreground font-semibold text-lg hover:border-primary/50 hover:bg-primary/5 transition-all"
           >
-            Start a Project
+            {HERO_CONTENT.secondaryCta.text}
           </Link>
         </motion.div>
       </div>
@@ -77,7 +76,7 @@ const Hero = () => {
         transition={{ delay: 1.5, duration: 1 }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2"
       >
-        <div className="w-[1px] h-20 bg-gradient-to-b from-transparent via-muted-foreground to-transparent" />
+        <div className="w-px h-20 bg-linear-to-b from-transparent via-muted-foreground to-transparent" />
       </motion.div>
     </section>
   );
