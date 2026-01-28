@@ -1,6 +1,6 @@
 export const COMPANY_INFO = {
   name: "Vision Edit Co.",
-  email: "hamzajaffer789@gmail.com",
+  email: "visioneditcompany@gmail.com",
   phone: "+92 330 5568977",
   tagline: "Visuals That Defy Gravity.",
   description:
