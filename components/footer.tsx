@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 
 const Footer = () => {
@@ -10,8 +11,9 @@ const Footer = () => {
           <div className="md:col-span-2">
             <Link
               href="/"
-              className="text-3xl font-bold tracking-tighter mb-6 block"
+              className="text-3xl font-bold tracking-tighter mb-6 flex items-center gap-2"
             >
+              <Image src="/nav-logo.png" alt="Logo" width={40} height={40} />
               VISION <span className="text-primary">EDIT</span> CO.
             </Link>
             <p className="text-muted-foreground text-lg max-w-md">

@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -37,8 +38,11 @@ const Navbar = () => {
       )}
     >
       <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
-        {/* Logo */}
-        <Link href="/" className="text-2xl font-bold tracking-tighter">
+        <Link
+          href="/"
+          className="text-2xl font-bold tracking-tighter flex gap-2 items-center"
+        >
+          <Image src="/nav-logo.png" alt="Logo" width={40} height={40} />
           VISION <span className="text-primary">EDIT</span> CO.
         </Link>
 
