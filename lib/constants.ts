@@ -120,31 +120,41 @@ export const FEATURED_WORK_CONTENT = {
     {
       id: 1,
       category: "YouTube",
-      title: "Nike Air Max Promo",
+      title: "YouTube clients project ",
       color: "bg-red-500",
       videoUrl: "https://youtu.be/4xmVO6XFLZw",
     },
     {
       id: 2,
       category: "YouTube",
-      title: "Tech Review - M3 MacBook",
+      title: "YouTube clients project ",
       color: "bg-blue-500",
       videoUrl: "https://youtu.be/f8pIDMJrR2k",
     },
-    // {
-    //   id: 3,
-    //   category: "Social Media",
-    //   title: "Fashion Week Reels",
-    //   color: "bg-purple-500",
-    //   videoUrl: "https://www.youtube.com/watch?v=9_D80e-A7M0",
-    // },
-    // {
-    //   id: 4,
-    //   category: "Music Video",
-    //   title: "Neon Nights",
-    //   color: "bg-emerald-500",
-    //   videoUrl: "https://www.youtube.com/watch?v=33K869xOXYI",
-    // },
+    {
+      id: 3,
+      category: "YouTube",
+      title: "Historical Clients project",
+      color: "bg-purple-500",
+      videoUrl:
+        "https://drive.google.com/file/d/1bt4inggPMQ4efmXYJDwinFcTUhXaa-yx/view?usp=drivesdk",
+    },
+    {
+      id: 4,
+      category: "YouTube",
+      title: "YouTube clients project",
+      color: "bg-emerald-500",
+      videoUrl:
+        "https://drive.google.com/file/d/1WB9YpBWfwc2LlJSizVaR6KzqND2FhYAA/view?usp=drivesdk",
+    },
+    {
+      id: 5,
+      category: "YouTube",
+      title: "Sample clients project",
+      color: "bg-emerald-500",
+      videoUrl:
+        "https://drive.google.com/file/d/1zSULSlkD4ToCIkUK5CQ3QG2JO9GGm7i0/view?usp=drivesdk",
+    },
   ],
 };
 

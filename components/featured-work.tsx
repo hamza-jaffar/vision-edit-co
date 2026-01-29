@@ -4,18 +4,10 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Play, X } from "lucide-react";
 import { FEATURED_WORK_CONTENT } from "@/lib/constants";
+import { getEmbedUrl } from "@/lib/video";
 
 const FeaturedWork = () => {
   const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
-
-  // Function to extract YouTube ID
-  const getYouTubeId = (url: string) => {
-    const regExp =
-      /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
-    const match = url.match(regExp);
-    return match && match[2].length === 11 ? match[2] : null;
-  };
-
   // Close modal when pressing escape
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -103,12 +95,26 @@ const FeaturedWork = () => {
                 <X className="w-6 h-6" />
               </button>
 
-              <iframe
-                src={`https://www.youtube.com/embed/${getYouTubeId(selectedVideo)}?autoplay=1`}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="w-full h-full border-0"
-              />
+              {(() => {
+                const embedUrl = getEmbedUrl(selectedVideo);
+
+                if (!embedUrl) {
+                  return (
+                    <div className="flex items-center justify-center w-full h-full text-white">
+                      Unsupported video format
+                    </div>
+                  );
+                }
+
+                return (
+                  <iframe
+                    src={embedUrl}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="w-full h-full border-0"
+                  />
+                );
+              })()}
             </motion.div>
           </motion.div>
         )}
