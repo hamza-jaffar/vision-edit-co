@@ -71,7 +71,7 @@ const ContactUsPage = () => {
       {/* Main Content Section */}
       <section className="pb-16 relative">
         <div className="container mx-auto px-6">
-          <div className="flex gap-4 items-start">
+          <div className="flex gap-4 flex-col md:flex-row items-start">
             {/* Contact Information Cards */}
             <div className="lg:col-span-5 space-y-8">
               <div className="grid grid-cols-1 gap-6">
