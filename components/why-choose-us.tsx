@@ -15,10 +15,10 @@ const iconMap: Record<string, any> = {
 
 const WhyChooseUs = () => {
   return (
-    <section id="why-us" className="py-32 bg-secondary/20">
+    <section id="why-us" className="py-32 bg-secondary/20 max-w-screen ">
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row gap-16 items-start">
-          <div className="md:w-1/3 sticky top-32">
+          <div className="md:w-1/3">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
               {WHY_CHOOSE_US_CONTENT.titleMain} <br />
               <span className="text-primary">
@@ -30,7 +30,7 @@ const WhyChooseUs = () => {
             </p>
           </div>
 
-          <div className="md:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="md:w-2/3 grid grid-cols-1 bg- md:grid-cols-2 gap-8">
             {WHY_CHOOSE_US_CONTENT.reasons.map((r, i) => (
               <motion.div
                 key={r.title}

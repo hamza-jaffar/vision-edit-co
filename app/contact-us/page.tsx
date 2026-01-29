@@ -45,7 +45,7 @@ const ContactUsPage = () => {
   };
 
   return (
-    <main className="min-h-screen bg-background text-foreground selection:bg-primary/30">
+    <main className="min-h-screen bg-background text-foreground selection:bg-primary/30 overflow-x-hidden">
       <Navbar />
 
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2" />
@@ -55,37 +55,37 @@ const ContactUsPage = () => {
         {/* Background Accents */}
 
         <div className="container mx-auto px-6 relative z-10 text-center md:text-left">
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-8 leading-tight">
+          <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight mb-6 md:mb-8 leading-tight">
             {CONTACT_PAGE_CONTENT.hero.titleMain}{" "}
             <br className="hidden md:block" />
             <span className="text-transparent bg-clip-text bg-linear-to-r from-primary via-blue-400 to-accent">
               {CONTACT_PAGE_CONTENT.hero.titleAccent}
             </span>
           </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl leading-relaxed">
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">
             {CONTACT_PAGE_CONTENT.hero.description}
           </p>
         </div>
       </section>
 
       {/* Main Content Section */}
-      <section className="pb-32 relative">
+      <section className="pb-16 relative">
         <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+          <div className="flex gap-4 items-start">
             {/* Contact Information Cards */}
             <div className="lg:col-span-5 space-y-8">
               <div className="grid grid-cols-1 gap-6">
                 {/* Email Card */}
-                <div className="p-8 rounded-[2.5rem] bg-secondary/30 border border-border/50 hover:border-primary/30 transition-all group">
+                <div className="p-4 md:p-8 rounded-2xl md:rounded-[2.5rem] bg-secondary/30 border border-border/50 hover:border-primary/30 transition-all group">
                   <div className="flex items-start gap-6">
-                    <div className="p-4 rounded-2xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-background transition-all duration-500 shrink-0">
+                    <div className="p-2 sm:p-4 rounded-2xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-background transition-all duration-500 shrink-0">
                       <Mail className="w-6 h-6" />
                     </div>
                     <div>
-                      <h3 className="text-sm font-bold uppercase tracking-widest text-muted-foreground mb-1">
+                      <h3 className="text-xs md:text-sm font-bold uppercase tracking-widest text-muted-foreground mb-1">
                         {CONTACT_PAGE_CONTENT.info.email.label}
                       </h3>
-                      <p className="text-xl font-medium">
+                      <p className="text-xs md:text-xl text-wrap font-medium">
                         {COMPANY_INFO.email}
                       </p>
                     </div>
@@ -93,42 +93,25 @@ const ContactUsPage = () => {
                 </div>
 
                 {/* Phone Card */}
-                <div className="p-8 rounded-[2.5rem] bg-secondary/30 border border-border/50 hover:border-primary/30 transition-all group">
+                <div className="p-4 md:p-8 rounded-2xl md:rounded-[2.5rem] bg-secondary/30 border border-border/50 hover:border-primary/30 transition-all group">
                   <div className="flex items-start gap-6">
-                    <div className="p-4 rounded-2xl bg-accent/10 text-accent group-hover:bg-accent group-hover:text-background transition-all duration-500 shrink-0">
+                    <div className="p-2 md:p-4 rounded-2xl bg-accent/10 text-accent group-hover:bg-accent group-hover:text-background transition-all duration-500 shrink-0">
                       <Phone className="w-6 h-6" />
                     </div>
                     <div>
-                      <h3 className="text-sm font-bold uppercase tracking-widest text-muted-foreground mb-1">
+                      <h3 className="text-xs md:text-sm font-bold uppercase tracking-widest text-muted-foreground mb-1">
                         {CONTACT_PAGE_CONTENT.info.phone.label}
                       </h3>
-                      <p className="text-xl font-medium">
+                      <p className="text-xs md:text-xl font-medium">
                         {COMPANY_INFO.phone}
                       </p>
                     </div>
                   </div>
                 </div>
-
-                {/* Address Card */}
-                {/* <div className="p-8 rounded-[2.5rem] bg-secondary/30 border border-border/50 hover:border-primary/30 transition-all group">
-                  <div className="flex items-start gap-6">
-                    <div className="p-4 rounded-2xl bg-blue-500/10 text-blue-400 group-hover:bg-blue-500 group-hover:text-background transition-all duration-500 shrink-0">
-                      <MapPin className="w-6 h-6" />
-                    </div>
-                    <div>
-                      <h3 className="text-sm font-bold uppercase tracking-widest text-muted-foreground mb-1">
-                        {CONTACT_PAGE_CONTENT.info.address.label}
-                      </h3>
-                      <p className="text-xl font-medium whitespace-pre-line leading-relaxed">
-                        {COMPANY_INFO.address}
-                      </p>
-                    </div>
-                  </div>
-                </div> */}
               </div>
 
               {/* Social Connect */}
-              <div className="pt-8">
+              <div className="pt-8 mb-4">
                 <h4 className="text-sm font-bold uppercase tracking-widest text-muted-foreground mb-6">
                   {CONTACT_PAGE_CONTENT.info.social.title}
                 </h4>
@@ -148,7 +131,7 @@ const ContactUsPage = () => {
 
             {/* Contact Form Card */}
             <div className="lg:col-span-7">
-              <div className="p-8 md:p-12 rounded-[3.5rem] bg-card/40 backdrop-blur-xl border border-border/50 shadow-2xl relative overflow-hidden">
+              <div className="p-4 md:p-12 rounded-2xl md:rounded-[2.5rem] bg-card/40 backdrop-blur-xl border border-border/50 shadow-2xl relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
 
                 <form

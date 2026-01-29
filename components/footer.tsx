@@ -71,7 +71,7 @@ const Footer = () => {
             © {COMPANY_INFO.establishedYear} {COMPANY_INFO.name}{" "}
             {FOOTER_CONTENT.copyright}
           </p>
-          <div className="flex gap-8 text-sm text-muted-foreground">
+          {/* <div className="flex gap-8 text-sm text-muted-foreground">
             {FOOTER_CONTENT.legal.map((item) => (
               <Link
                 key={item.name}
@@ -81,7 +81,7 @@ const Footer = () => {
                 {item.name}
               </Link>
             ))}
-          </div>
+          </div> */}
         </div>
       </div>
     </footer>
