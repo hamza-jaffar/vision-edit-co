@@ -45,11 +45,13 @@ const ContactUsPage = () => {
   };
 
   return (
-    <main className="min-h-screen bg-background text-foreground selection:bg-primary/30 overflow-x-hidden">
+    <main className="h-screen bg-background text-foreground selection:bg-primary/30 overflow-x-hidden">
       <Navbar />
 
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2" />
-      <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-accent/10 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2" />
+      <div className="absolute top-0 right-0 max-w-[100vw] w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] -translate-y-1/2 pointer-events-none" />
+
+      <div className="absolute bottom-0 left-0 max-w-[100vw] w-[300px] h-[300px] bg-accent/10 rounded-full blur-[100px] translate-y-1/2 pointer-events-none" />
+
       {/* Hero / Header Section */}
       <section className="pt-32 pb-16 md:pt-48 md:pb-24 relative overflow-hidden">
         {/* Background Accents */}

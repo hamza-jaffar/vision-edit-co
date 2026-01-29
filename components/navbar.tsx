@@ -23,7 +23,7 @@ const Navbar = () => {
   return (
     <nav
       className={cn(
-        "fixed top-0 left-0 w-full z-100 transition-all duration-300 px-6 py-4",
+        "fixed top-0 left-0 z-100 transition-all duration-300 px-6 py-4 w-screen",
         scrolled ? "md:py-4" : "md:py-8",
       )}
     >
@@ -95,7 +95,7 @@ const Navbar = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="absolute top-24 left-6 right-6 p-8 rounded-[2rem] bg-background/95 backdrop-blur-2xl border border-border/50 shadow-2xl md:hidden"
+            className="absolute top-24 left-6 right-6 p-8 rounded-4xl bg-background/95 backdrop-blur-2xl border border-border/50 shadow-2xl md:hidden"
           >
             <div className="flex flex-col gap-6">
               {NAV_LINKS.map((link) => (
