@@ -49,7 +49,7 @@ export async function sendContactEmail(formData: FormData) {
     const mailOptions = {
       from: `"${process.env.SMTP_FROM_NAME || COMPANY_INFO.name}" <${process.env.SMTP_USER}>`,
       to: process.env.SMTP_TO || COMPANY_INFO.email,
-      replyTo: email,
+      replyTo: process.env.SMTP_TO || COMPANY_INFO.email,
       subject: `New Inquiry from ${firstName} ${lastName}`,
       html: emailHtml,
     };
